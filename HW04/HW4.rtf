@@ -1,0 +1,56 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red42\green42\blue42;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c21569\c21569\c21569;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww21220\viewh21940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Armaan Sethi\
+Phys 331\
+Homework 4\
+\
+1.\
+	a) \
+		g1(x,y) = Re[f(x)] = \cf2 \cb3 \expnd0\expndtw0\kerning0
+x^3 - 3xy^2 - 1\
+		g2(x,y) = Im[f(x)] = 3iyx^2 - iy^3\
+\
+\cf0 \cb1 \kerning1\expnd0\expndtw0 	b) \
+		Jacobian:\
+		[3x^2 - 3y^2	,	-6xy			]\
+		[6xy			,	-3y^2 3x^2	]\
+		Inverse Jacobian:\
+\pard\pardeftab720\sl400\partightenfactor0
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+		(1/(9 x^2 - 9 y^2 - 12))*\
+		[3				-2/(xy)			]\
+		[2/(xy)			(y^2-x^2)/(x^2y^2)	]\
+	c)\
+		(x1, y1) converges to the root (1.00000260e+00,   1.97334115e-04) which is the root (1,0i)\
+		(x2, y2) converges to the root (-0.50005022,  0.8659397) which is the root (-1/2, sqrt(3)/2)\
+		(x3, y3) converges to the root (-0.50005022, -0.8659397) which is the root (-1/2. -sqrt(3)/2)\
+		They all achieve the desired tolerance after one iteration of updating the values. \
+		This is because the guesses are so close to the values of the roots, and the tolerance is only 10^-3.\
+\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 2.\
+	a)\
+		We need to write the function in the form f(x)=0\
+	R = vector of known radii\
+	O = vector of known angles\
+	f(x) = C/(e*sin(O + a)) - R = 0\
+	The input would be a vector of [C, e, a]\
+	b) In the Code		\
+	c) In the Code\
+\
+3.\
+	a) \
+		At x = 0, f\'92(x) does not exist. This would probably make it difficult to interpolate f(x) at this point. \
+		This statement holds true for all values of x in which f(x) is approaching 0.\
+	b)\
+		The function hits 0 whenever x=k*(pi) where k is an integer. \
+		However, since our data points are only in the range -10 to 10 with the step size of 0.1, we only see the function equal 0 at x=0 (between -10 and 10).\
+		At other places ( near x=k*(pi) ) the values of f(x) get close to 0, but does not equal 0. \
+	c)\
+		The error of the cubic spline increases as f(x)=0. \
+		This is because the cubic spline forces all values to be differentiable, and the \'93correct\'94 function is not differentiable as f(x)=0, so the error becomes larger.}
