@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fnil\fcharset0 HelveticaNeue;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red22\green25\blue31;\red255\green255\blue255;
+\red22\green25\blue31;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c11373\c12941\c16078;}
+\margl1440\margr1440\vieww17740\viewh21240\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Armaan Sethi\
+Phys 331\
+\
+1.\
+	a) The first example requires 495 iterations to reach the desired tolerance while the second example only requires 9 iterations.\
+	b) The matrix appears to be divergent between when w > 0.35 (and is within the valid range for w:  0 < w < 2). \
+		When 0 < w < 0.35, it converges. The number of iterations seem to fluctuate in a way in which there is not a predictable minimum iterations. \
+		This is expected because the smaller that w is, the less chance that overshoot as it was doing when w=1.\
+\
+2.\
+	a)\
+			Second Order Linear ODE\
+		 		
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 phi
+\f2\fs28 \cf3 \cb4 \strokec3 (x) = c_2 x + c_1 + 4 \uc0\u960  sin(x), \
+			we can make the constants = 0 since phi(0) = 0\
+				phi(x) = \cf5 \cb4 \outl0\strokewidth0  4\uc0\u960 sin(x), \
+	\
+	b)		finite-difference structure:\
+			100x100 matrix of :\
+	
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 				A= 	{{\NeXTGraphic Screen Shot 2017-11-03 at 9.17.17 PM.png \width5040 \height3340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+				There is a 1 in the top right and bottom left corner in order to satisfy the periodic boundary conditions. \
+				b = -4*pi*sin(x_i),  100 x 1\
+				Ax = b, solve for x\
+	c) In the code.\
+		For some reason I was unable to get myJacobi to work well on this matrix. \
+		When I ran the function myJacobi it would run for a very long time, too long for me to wait. \
+		However, if I waited long enough it would work. (~10 minutes)\
+		During this comparison I saw that they followed similar patterns, but the analyitcal solution was much more smooth.\
+		\
+		I also compared the analytical solution to the numerical solution provided by numpy.\
+		This is shown in my code and does not make much sense to me, the numpy solution seems to be magnitudes smaller than the analytical solution.\
+		If you would like to see the comparison to my numerical solution you may uncomment lines 91\
+			91: #x_numerical = myJacobi(A, b , 1., 10**-4)\
+		and line 108\
+			108: #plt.plot(x_analytical, x_numerical)    #UNCOMMENT THIS TO TEST MY NUMERICAL SOLUTION\
+		\
+\
+\
+3.\
+\
+	a)  Ax = b\
+		A is matrix of d^2T/dx^2  + d^2T/dy^2.\
+		b is the temperature vector.\
+		x is the final temperature we solve for.\
+\
+	b) The equation of row 6 of the matrix is \
+		T3 + T5 - 4T6 + T9 = 100\
+		If you add up the matrices d^2T/dx^2  and d^2T/dy^2, you would get this matrix\
+	c)	\
+		The temperature values do not make sense given the boundary values of the temperature. \
+\
+		However if you multiply the A matrix by -1, we get values that make much more sense. (Shown in the code).\
+		-Ax = b\
+		I still get that the value of T1 is negative, but that is okay because it is the furthest away form the heat source. }
